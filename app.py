@@ -28,7 +28,9 @@ class Jugador(db.Model):
             'Edad_en_años': self.Edad_en_años,
             'Equipo': self.Equipo,
         }
-
+with app.app_context():
+	db.create_all()
+    
 @app.route('/')
 def index():
     jugadores = Jugador.query.all()
